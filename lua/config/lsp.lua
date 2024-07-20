@@ -5,7 +5,15 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-local language_servers = { 'clangd', 'rust_analyzer', 'lua_ls', 'tsserver' }
+local language_servers = {
+    'clangd',
+    'rust_analyzer',
+    'lua_ls',
+    'tsserver',
+    'kotlin_language_server',
+    'markdown_oxide',
+    'jsonls',
+}
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = language_servers,
