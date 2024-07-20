@@ -38,7 +38,6 @@ lsp_config.ccls.setup {
 }
 
 lsp_config.ccls.setup{}
-
 local cmp = require('cmp')
 local cmp_action = lsp_zero.cmp_action()
 cmp.setup({
@@ -54,15 +53,20 @@ cmp.setup({
         -- Enable super tab
         ['<Tab>'] = cmp_action.luasnip_supertab(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        --['<Tab>'] = cmp_action.tab_complete(),
+        --['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-e>'] = cmp.mapping.abort(),
     }),
     snippet = {
         expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body)
+            -- vim.fn['vsnip#anonymous'](args.body)
+            require('luasnip').lsp_expand(args.body)
         end
     },
     window = {
-        completion = cmp.config.window.bordered()
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
 })
 
@@ -70,3 +74,14 @@ local caps = require('cmp_nvim_lsp').default_capabilities()
 for _, server in pairs(language_servers) do
     lsp_config[server].setup { capabilities = caps }
 end
+
+vim.diagnostic.config({
+    float = {
+        focusable = false,
+        style = 'minimal',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    }
+})
