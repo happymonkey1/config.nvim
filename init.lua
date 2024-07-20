@@ -24,6 +24,9 @@ vim.call('plug#begin')
     -- LSP package manager
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
+
+    -- Theme
+    Plug 'rose-pine/neovim'
 vim.call('plug#end')
 
 require('config.keymap')
@@ -31,4 +34,9 @@ require('config.telescope')
 require('config.treesitter')
 require('config.options')
 require('config.lsp')
+require('config.colors')
+Paint()
 
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
