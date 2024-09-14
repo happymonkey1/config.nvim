@@ -28,6 +28,8 @@ vim.call('plug#begin')
 
     -- Theme
     Plug 'rose-pine/neovim'
+
+    Plug('folke/trouble.nvim', { ['tag'] = 'v3.5.2' })
 vim.call('plug#end')
 
 require('config.keymap')
@@ -36,6 +38,7 @@ require('config.treesitter')
 require('config.options')
 require('config.lsp')
 require('config.colors')
+require('config.trouble')
 Paint()
 
 vim.g.netrw_browse_split = 0

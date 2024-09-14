@@ -19,3 +19,6 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 -- Delete Line
 vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 
+vim.keymap.set({'n','v'}, 'j', 'k')
+vim.keymap.set({'n','v'}, 'k', 'j')
+
