@@ -45,6 +45,9 @@ vim.call('plug#begin')
 
     -- toggleterm
     Plug 'akinsho/toggleterm.nvim'
+
+    -- Autopair
+    Plug 'windwp/nvim-autopairs'
 vim.call('plug#end')
 
 require('config.keymap')
@@ -58,6 +61,7 @@ require('config.colors')
 require('config.trouble')
 require('config.nvimtree')
 require('config.toggleterm')
+require('config.autopairs')
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
