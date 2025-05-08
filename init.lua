@@ -4,7 +4,13 @@ local Plug = vim.fn['plug#']
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache"
+
 vim.call('plug#begin')
+    -- NvChad UI
+    Plug 'nvchad/ui'
+    Plug 'nvchad/base46'
+
     -- Treesitter
     Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
@@ -42,6 +48,8 @@ vim.call('plug#begin')
 vim.call('plug#end')
 
 require('config.keymap')
+require('config.nvchadui')
+require('config.base46')
 require('config.telescope')
 require('config.treesitter')
 require('config.options')
@@ -50,6 +58,10 @@ require('config.colors')
 require('config.trouble')
 require('config.nvimtree')
 require('config.toggleterm')
+
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
 Paint()
 
 vim.g.netrw_browse_split = 0
