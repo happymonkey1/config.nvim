@@ -1,8 +1,10 @@
 local vim = vim
 local Plug = vim.fn['plug#']
 
-vim.call('plug#begin')
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+vim.call('plug#begin')
     -- Treesitter
     Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
@@ -30,6 +32,13 @@ vim.call('plug#begin')
     Plug 'rose-pine/neovim'
 
     Plug('folke/trouble.nvim', { ['tag'] = 'v3.5.2' })
+
+    -- nvim-tree
+    Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'nvim-tree/nvim-tree.lua'
+
+    -- toggleterm
+    Plug 'akinsho/toggleterm.nvim'
 vim.call('plug#end')
 
 require('config.keymap')
@@ -39,8 +48,17 @@ require('config.options')
 require('config.lsp')
 require('config.colors')
 require('config.trouble')
+require('config.nvimtree')
+require('config.toggleterm')
 Paint()
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+vim.o.guicursor = table.concat({
+  "n-v-c:block",       -- Normal, Visual, Command modes: block
+  "i-ci:ver25",        -- Insert, Insert Command-line: vertical bar (25% height)
+  "r-cr:hor20",        -- Replace modes: horizontal bar (20% height)
+  "o:hor50",           -- Operator-pending: horizontal bar (50%)
+}, ",")

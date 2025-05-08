@@ -22,3 +22,15 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 vim.keymap.set({'n','v'}, 'j', 'k')
 vim.keymap.set({'n','v'}, 'k', 'j')
 
+-- nvim-tree
+vim.keymap.set({'n'}, '<C-a>', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set({'v'}, '<leader>fe', '<cmd>NvimTreeFocus<CR>')
+
+-- terminal
+-- vim.keymap.set({'n'}, '<C-t>', '<cmd>ToggleTerm<CR>')
+
+-- Change focused buffer
+vim.keymap.set('n', '<C-Up>', '<C-w>k', { noremap = true })
+vim.keymap.set('n', '<C-Down>', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<C-Left>', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<C-Right>', '<C-w>l', { noremap = true })
