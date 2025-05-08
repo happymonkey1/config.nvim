@@ -62,7 +62,7 @@ require('config.toggleterm')
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-Paint()
+Paint('rose-pine')
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

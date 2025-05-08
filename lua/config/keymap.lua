@@ -28,9 +28,24 @@ vim.keymap.set({'v'}, '<leader>fe', '<cmd>NvimTreeFocus<CR>')
 
 -- terminal
 -- vim.keymap.set({'n'}, '<C-t>', '<cmd>ToggleTerm<CR>')
+-- Escape terminal
+vim.keymap.set('t', '<C-x>', '<C-\\><C-N>')
 
 -- Change focused buffer
 vim.keymap.set('n', '<C-Up>', '<C-w>k', { noremap = true })
 vim.keymap.set('n', '<C-Down>', '<C-w>j', { noremap = true })
 vim.keymap.set('n', '<C-Left>', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<C-Right>', '<C-w>l', { noremap = true })
+
+-- Reverse up & down keys
+vim.keymap.set({'n','v'}, 'j', 'k', { noremap = true })
+vim.keymap.set({'n','v'}, 'k', 'j', { noremap = true })
+
+vim.keymap.set('n', '<tab>', function()
+    require('nvchad.tabufline').next()
+end)
+
+vim.keymap.set('n', '<S-tab>', function()
+    require('nvchad.tabufline').prev()
+end)
+
