@@ -10,7 +10,7 @@ vim.call('plug#begin')
     -- NvChad UI
     Plug 'nvchad/ui'
     Plug 'nvchad/base46'
-
+    
     -- Treesitter
     Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
@@ -48,6 +48,9 @@ vim.call('plug#begin')
 
     -- Autopair
     Plug 'windwp/nvim-autopairs'
+
+    -- Local llm suggestions
+    Plug 'ggml-org/llama.vim'
 vim.call('plug#end')
 
 require('config.keymap')
@@ -62,11 +65,12 @@ require('config.trouble')
 require('config.nvimtree')
 require('config.toggleterm')
 require('config.autopairs')
+vim.g.llama_config = require('config.llama')
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-Paint('rose-pine')
+-- Paint('rose-pine')
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

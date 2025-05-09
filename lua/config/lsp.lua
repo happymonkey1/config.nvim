@@ -51,7 +51,7 @@ cmp.setup({
         ['<Up>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
         ['<Down>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
         -- Enable super tab
-        ['<Tab>'] = cmp_action.luasnip_supertab(),
+        ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
         --['<Tab>'] = cmp_action.tab_complete(),
         --['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
